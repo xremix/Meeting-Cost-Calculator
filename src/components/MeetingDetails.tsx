@@ -17,6 +17,15 @@ const MeetingDetails: React.FC<MeetingDetailsProps> = ({
   const [hours, setHours] = useState<string>('0');
   const [minutes, setMinutes] = useState<string>('0');
 
+  // Common duration options in minutes
+  const durationOptions = [
+    { label: '30 min', value: 30 },
+    { label: '45 min', value: 45 },
+    { label: '1 hour', value: 60 },
+    { label: '1.5 hours', value: 90 },
+    { label: '2 hours', value: 120 }
+  ];
+
   // Initialize hours and minutes from meetingTime
   useEffect(() => {
     const totalMinutes = parseInt(meetingTime) || 0;
@@ -39,6 +48,15 @@ const MeetingDetails: React.FC<MeetingDetailsProps> = ({
     const h = parseInt(hours) || 0;
     const m = parseInt(value) || 0;
     onMeetingTimeChange((h * 60 + m).toString());
+  };
+
+  // Handle clicking on a duration chip
+  const handleDurationChipClick = (minutes: number) => {
+    const h = Math.floor(minutes / 60);
+    const m = minutes % 60;
+    setHours(h.toString());
+    setMinutes(m.toString());
+    onMeetingTimeChange(minutes.toString());
   };
 
   return (
@@ -83,6 +101,18 @@ const MeetingDetails: React.FC<MeetingDetailsProps> = ({
             />
             <label htmlFor="minutes">Minutes</label>
           </div>
+        </div>
+        <div className="duration-chips">
+          {durationOptions.map((option) => (
+            <button
+              key={option.value}
+              type="button"
+              className="duration-chip"
+              onClick={() => handleDurationChipClick(option.value)}
+            >
+              {option.label}
+            </button>
+          ))}
         </div>
       </div>
     </form>
