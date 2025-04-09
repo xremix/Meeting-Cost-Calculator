@@ -204,7 +204,7 @@ form div > div {
   justify-content: center;
 }
 
-.duration-chip {
+.chip {
   background-color: #3b4049;
   color: #61dafb;
   border: 1px solid #61dafb;
@@ -215,7 +215,7 @@ form div > div {
   transition: all 0.2s ease;
 }
 
-.duration-chip:hover {
+.chip:hover {
   background-color: #61dafb;
   color: #282c34;
 }

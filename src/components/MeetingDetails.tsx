@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Chip from './Chip';
 
 interface MeetingDetailsProps {
   participants: string;
@@ -104,14 +105,12 @@ const MeetingDetails: React.FC<MeetingDetailsProps> = ({
         </div>
         <div className="duration-chips">
           {durationOptions.map((option) => (
-            <button
+            <Chip
               key={option.value}
-              type="button"
-              className="duration-chip"
-              onClick={() => handleDurationChipClick(option.value)}
-            >
-              {option.label}
-            </button>
+              label={option.label}
+              value={option.value}
+              onClick={handleDurationChipClick}
+            />
           ))}
         </div>
       </div>
