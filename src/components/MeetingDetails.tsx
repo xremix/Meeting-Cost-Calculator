@@ -62,7 +62,7 @@ const MeetingDetails: React.FC<MeetingDetailsProps> = ({
   };
 
   return (
-    <form>
+    <form className="meeting-details">
       <div>
         <label htmlFor="participants">Number of Participants: </label>
         <input
