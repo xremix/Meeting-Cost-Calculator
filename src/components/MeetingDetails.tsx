@@ -58,7 +58,7 @@ const MeetingDetails: React.FC<MeetingDetailsProps> = ({
       <div>
         <label htmlFor="meetingTime">Meeting Duration: </label>
         <div className="time-inputs">
-          <div>
+          <div className="time-input-group">
             <input
               type="number"
               id="hours"
@@ -68,9 +68,9 @@ const MeetingDetails: React.FC<MeetingDetailsProps> = ({
               min="0"
               required
             />
-            <label htmlFor="hours"> hours</label>
+            <label htmlFor="hours">Hours</label>
           </div>
-          <div>
+          <div className="time-input-group">
             <input
               type="number"
               id="minutes"
@@ -81,7 +81,7 @@ const MeetingDetails: React.FC<MeetingDetailsProps> = ({
               max="59"
               required
             />
-            <label htmlFor="minutes"> minutes</label>
+            <label htmlFor="minutes">Minutes</label>
           </div>
         </div>
       </div>

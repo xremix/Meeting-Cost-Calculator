@@ -164,24 +164,33 @@ button:hover {
 /* Time inputs styling */
 .time-inputs {
   display: flex;
+  flex-direction: row;
   gap: 15px;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
 }
 
-.time-inputs div {
+.time-input-group {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   gap: 5px;
   width: 50%;
 }
 
 .time-inputs input {
   width: 100%;
-  flex: 1;
 }
 
 .time-inputs label {
   white-space: nowrap;
-  margin-left: 5px;
+  margin-top: 5px;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+/* Override any conflicting styles */
+form div > div {
+  flex-direction: row;
+  width: auto;
 }
