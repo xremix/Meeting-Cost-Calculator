@@ -24,11 +24,6 @@ function App() {
     setShowSalaryInput(!showSalaryInput);
   };
 
-  const goBack = () => {
-    setStep(1);
-    setShowSalaryInput(true);
-  };
-
   const calculateMeetingCost = () => {
     if (salary && participants && meetingTime) {
       const hourlyRate = parseFloat(salary);
@@ -64,7 +59,6 @@ function App() {
                 meetingTime={meetingTime}
                 onParticipantsChange={setParticipants}
                 onMeetingTimeChange={setMeetingTime}
-                onBack={goBack}
               />
               <CostDisplay cost={meetingCost} />
             </>

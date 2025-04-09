@@ -5,15 +5,13 @@ interface MeetingDetailsProps {
   meetingTime: string;
   onParticipantsChange: (value: string) => void;
   onMeetingTimeChange: (value: string) => void;
-  onBack: () => void;
 }
 
 const MeetingDetails: React.FC<MeetingDetailsProps> = ({
   participants,
   meetingTime,
   onParticipantsChange,
-  onMeetingTimeChange,
-  onBack
+  onMeetingTimeChange
 }) => {
   return (
     <>
@@ -43,9 +41,6 @@ const MeetingDetails: React.FC<MeetingDetailsProps> = ({
           />
         </div>
       </form>
-      <button className="back-button" onClick={onBack}>
-        Back to Hourly Rate
-      </button>
     </>
   );
 };
