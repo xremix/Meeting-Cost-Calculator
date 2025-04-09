@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import SalaryInput from './components/SalaryInput';
+import MeetingDetails from './components/MeetingDetails';
+import CostDisplay from './components/CostDisplay';
 
 function App() {
   const [salary, setSalary] = useState<string>('');
@@ -46,68 +49,24 @@ function App() {
       <header className="App-header">
         <h1>Meeting Cost Calculator</h1>
         <div className="calculator-container">
-          <div className="salary-section">
-            {step === 2 && (
-              <button 
-                className="toggle-button"
-                onClick={toggleSalaryInput}
-              >
-                {showSalaryInput ? 'Hide' : 'Show'} Hourly Rate
-              </button>
-            )}
-            {showSalaryInput && (
-              <form onSubmit={handleSalarySubmit}>
-                <div>
-                  <label htmlFor="salary">Average Hourly Rate (€): </label>
-                  <input
-                    type="number"
-                    id="salary"
-                    value={salary}
-                    onChange={(e) => setSalary(e.target.value)}
-                    placeholder="Enter hourly rate"
-                    min="0"
-                    step="0.01"
-                    required
-                  />
-                </div>
-                <button type="submit">Confirm</button>
-              </form>
-            )}
-          </div>
+          <SalaryInput
+            salary={salary}
+            onSalaryChange={setSalary}
+            onSubmit={handleSalarySubmit}
+            showToggle={step === 2}
+            onToggle={toggleSalaryInput}
+            isVisible={showSalaryInput}
+          />
           {step === 2 && (
             <>
-              <form>
-                <div>
-                  <label htmlFor="participants">Number of Participants: </label>
-                  <input
-                    type="number"
-                    id="participants"
-                    value={participants}
-                    onChange={(e) => setParticipants(e.target.value)}
-                    placeholder="Enter number of participants"
-                    min="1"
-                    required
-                  />
-                </div>
-                <div>
-                  <label htmlFor="meetingTime">Meeting Duration (minutes): </label>
-                  <input
-                    type="number"
-                    id="meetingTime"
-                    value={meetingTime}
-                    onChange={(e) => setMeetingTime(e.target.value)}
-                    placeholder="Enter meeting duration"
-                    min="1"
-                    required
-                  />
-                </div>
-              </form>
-              {meetingCost !== null && (
-                <div className="cost-display">
-                  <h2>Meeting Cost</h2>
-                  <div className="cost-amount">€{meetingCost.toFixed(2)}</div>
-                </div>
-              )}
+              <MeetingDetails
+                participants={participants}
+                meetingTime={meetingTime}
+                onParticipantsChange={setParticipants}
+                onMeetingTimeChange={setMeetingTime}
+                onBack={goBack}
+              />
+              <CostDisplay cost={meetingCost} />
             </>
           )}
         </div>
