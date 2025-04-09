@@ -219,3 +219,106 @@ form div > div {
   background-color: #61dafb;
   color: #282c34;
 }
+
+/* Live calculator styling */
+.live-calculator-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #61dafb;
+  color: #282c34;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.live-calculator-button:hover {
+  background-color: #4fa8c7;
+}
+
+.live-calculator {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #3b4049;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.live-calculator h3 {
+  margin-top: 0;
+  color: #61dafb;
+}
+
+/* Stopwatch styling */
+.stopwatch-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.stopwatch-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.time-display {
+  font-size: 3rem;
+  font-weight: bold;
+  font-family: monospace;
+  color: #61dafb;
+}
+
+.cost-display {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #61dafb;
+}
+
+.stopwatch-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.start-button, .pause-button, .reset-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.start-button {
+  background-color: #4caf50;
+  color: white;
+}
+
+.start-button:hover {
+  background-color: #3d8b40;
+}
+
+.pause-button {
+  background-color: #ff9800;
+  color: white;
+}
+
+.pause-button:hover {
+  background-color: #e68a00;
+}
+
+.reset-button {
+  background-color: #f44336;
+  color: white;
+}
+
+.reset-button:hover {
+  background-color: #d32f2f;
+}

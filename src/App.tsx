@@ -3,6 +3,7 @@ import './App.css';
 import SalaryInput from './components/SalaryInput';
 import MeetingDetails from './components/MeetingDetails';
 import CostDisplay from './components/CostDisplay';
+import LiveCalculator from './components/LiveCalculator';
 import { getSalary, saveSalary } from './services/storageService';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
   const [meetingTime, setMeetingTime] = useState<string>('60');
   const [meetingCost, setMeetingCost] = useState<number | null>(null);
   const [step, setStep] = useState<number>(1);
+  const [showLiveCalculator, setShowLiveCalculator] = useState<boolean>(false);
 
   // Check if there's a saved salary on component mount
   useEffect(() => {
@@ -58,6 +60,10 @@ function App() {
     }
   };
 
+  const toggleLiveCalculator = () => {
+    setShowLiveCalculator(!showLiveCalculator);
+  };
+
   useEffect(() => {
     calculateMeetingCost();
   }, [salary, participants, meetingTime]);
@@ -85,6 +91,19 @@ function App() {
               />
               <CostDisplay cost={meetingCost} />
             </>
+          )}
+          <button 
+            className="live-calculator-button"
+            onClick={toggleLiveCalculator}
+          >
+            {showLiveCalculator ? 'Hide Live Calculator' : 'Calculate Live'}
+          </button>
+          {showLiveCalculator && (
+            <LiveCalculator
+              salary={salary}
+              participants={participants}
+              meetingTime={meetingTime}
+            />
           )}
         </div>
       </header>
