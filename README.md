@@ -10,6 +10,8 @@ A React application that helps calculate the cost of meetings based on participa
 - View cost breakdowns and summaries
 - Export meeting cost reports
 
+![Screenshot](Screenshot.png)
+
 ## Quick Start
 
 1. Install dependencies:
