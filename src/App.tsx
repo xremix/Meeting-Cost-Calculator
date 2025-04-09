@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
   const [salary, setSalary] = useState<string>('');
   const [showSalaryInput, setShowSalaryInput] = useState(true);
-  const [participants, setParticipants] = useState<string>('');
-  const [meetingTime, setMeetingTime] = useState<string>('');
+  const [participants, setParticipants] = useState<string>('2');
+  const [meetingTime, setMeetingTime] = useState<string>('60');
   const [meetingCost, setMeetingCost] = useState<number | null>(null);
 
   const handleSalarySubmit = (e: React.FormEvent) => {
@@ -16,18 +16,19 @@ function App() {
   };
 
   const calculateMeetingCost = () => {
-    const hourlyRate = parseFloat(salary);
-    const numParticipants = parseInt(participants);
-    const durationInHours = parseInt(meetingTime) / 60;
-    
-    const cost = hourlyRate * numParticipants * durationInHours;
-    setMeetingCost(cost);
+    if (salary && participants && meetingTime) {
+      const hourlyRate = parseFloat(salary);
+      const numParticipants = parseInt(participants);
+      const durationInHours = parseInt(meetingTime) / 60;
+      
+      const cost = hourlyRate * numParticipants * durationInHours;
+      setMeetingCost(cost);
+    }
   };
 
-  const handleMeetingSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  useEffect(() => {
     calculateMeetingCost();
-  };
+  }, [salary, participants, meetingTime]);
 
   return (
     <div className="App">
@@ -52,7 +53,7 @@ function App() {
           </form>
         ) : (
           <div className="calculator-container">
-            <form onSubmit={handleMeetingSubmit}>
+            <form>
               <div>
                 <label htmlFor="participants">Number of Participants: </label>
                 <input
@@ -77,7 +78,6 @@ function App() {
                   required
                 />
               </div>
-              <button type="submit">Calculate Cost</button>
             </form>
             {meetingCost !== null && (
               <div className="cost-display">
