@@ -160,3 +160,28 @@ button:hover {
   color: #61dafb;
   margin-top: 1rem;
 }
+
+/* Time inputs styling */
+.time-inputs {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  width: 100%;
+}
+
+.time-inputs div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 50%;
+}
+
+.time-inputs input {
+  width: 100%;
+  flex: 1;
+}
+
+.time-inputs label {
+  white-space: nowrap;
+  margin-left: 5px;
+}
