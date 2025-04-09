@@ -20,6 +20,7 @@ const MeetingDetails: React.FC<MeetingDetailsProps> = ({
 
   // Common duration options in minutes
   const durationOptions = [
+    { label: '15 min', value: 15 },
     { label: '30 min', value: 30 },
     { label: '45 min', value: 45 },
     { label: '1 hour', value: 60 },

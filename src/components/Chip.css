@@ -1,0 +1,15 @@
+.chip {
+  background-color: #3b4049;
+  color: #61dafb;
+  border: 1px solid #61dafb;
+  border-radius: 20px;
+  padding: 8px 12px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.chip:hover {
+  background-color: #61dafb;
+  color: #282c34;
+} 

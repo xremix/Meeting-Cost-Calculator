@@ -204,7 +204,7 @@ form div > div {
 .duration-chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
   margin-top: 15px;
   justify-content: center;
 }
