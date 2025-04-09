@@ -92,18 +92,22 @@ function App() {
               <CostDisplay cost={meetingCost} />
             </>
           )}
-          <button 
-            className="live-calculator-button"
-            onClick={toggleLiveCalculator}
-          >
-            {showLiveCalculator ? 'Hide Live Calculator' : 'Calculate Live'}
-          </button>
-          {showLiveCalculator && (
-            <LiveCalculator
-              salary={salary}
-              participants={participants}
-              meetingTime={meetingTime}
-            />
+          {!showSalaryInput && (
+            <>
+              <button 
+                className="live-calculator-button"
+                onClick={toggleLiveCalculator}
+              >
+                {showLiveCalculator ? 'Hide Live Calculator' : 'Calculate Live'}
+              </button>
+              {showLiveCalculator && (
+                <LiveCalculator
+                  salary={salary}
+                  participants={participants}
+                  meetingTime={meetingTime}
+                />
+              )}
+            </>
           )}
         </div>
       </header>
